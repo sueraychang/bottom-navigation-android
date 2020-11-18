@@ -1,6 +1,7 @@
 package com.src.bottomnavigationexample.ui.dashboard
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ class DashboardFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG, "onCreateView")
         dashboardViewModel =
                 ViewModelProvider(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
@@ -27,5 +29,9 @@ class DashboardFragment : Fragment() {
             textView.text = it
         })
         return root
+    }
+
+    companion object {
+        private const val TAG = "HomeFragment"
     }
 }

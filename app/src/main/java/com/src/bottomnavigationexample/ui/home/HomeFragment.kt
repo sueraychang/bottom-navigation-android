@@ -1,6 +1,7 @@
 package com.src.bottomnavigationexample.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        Log.d(TAG, "onCreateView")
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
@@ -27,5 +29,9 @@ class HomeFragment : Fragment() {
             textView.text = it
         })
         return root
+    }
+
+    companion object {
+        private const val TAG = "HomeFragment"
     }
 }
